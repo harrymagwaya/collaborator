@@ -1,4 +1,4 @@
-package com.collaborator.collaborator.services;
+package com.collaborator.collaborator.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -7,9 +7,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.collaborator.collaborator.models.MyUserDetails;
-import com.collaborator.collaborator.models.UserCollab;
-import com.collaborator.collaborator.repositories.UserCollabRepository;
+import com.collaborator.collaborator.backend.models.MyUserDetails;
+import com.collaborator.collaborator.backend.models.UserCollab;
+import com.collaborator.collaborator.backend.repositories.UserCollabRepository;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService{

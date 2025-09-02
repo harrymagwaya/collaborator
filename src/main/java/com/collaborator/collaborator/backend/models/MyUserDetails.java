@@ -1,4 +1,4 @@
-package com.collaborator.collaborator.models;
+package com.collaborator.collaborator.backend.models;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.collaborator.collaborator.models;
+package com.collaborator.collaborator.backend.models;
 
 import io.micrometer.common.lang.NonNull;
 import jakarta.annotation.Generated;

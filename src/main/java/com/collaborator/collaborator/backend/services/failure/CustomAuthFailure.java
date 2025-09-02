@@ -1,5 +1,5 @@
 
- package com.collaborator.collaborator.services.failure;
+ package com.collaborator.collaborator.backend.services.failure;
 
 import java.io.IOException;
 

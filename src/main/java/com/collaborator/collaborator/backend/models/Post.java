@@ -1,4 +1,4 @@
-package com.collaborator.collaborator.models;
+package com.collaborator.collaborator.backend.models;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -50,6 +50,7 @@ public class Post {
         if (createdAt == null) {
             createdAt = Timestamp.valueOf(LocalDateTime.now());
         }
+        postType = PostType.ANNOUNCEMENT;
     }
 
     public  enum PostType {
