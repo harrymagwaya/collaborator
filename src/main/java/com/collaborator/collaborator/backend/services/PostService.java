@@ -8,11 +8,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.collaborator.collaborator.backend.dto.PostWithAuthorDTO;
+import com.collaborator.collaborator.backend.dto.PostWithAuthorInfo;
 import com.collaborator.collaborator.backend.models.MyUserDetails;
 import com.collaborator.collaborator.backend.models.Post;
 import com.collaborator.collaborator.backend.models.UserCollab;
 import com.collaborator.collaborator.backend.repositories.PostRepository;
 import com.collaborator.collaborator.backend.repositories.UserCollabRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class PostService {
@@ -25,8 +29,10 @@ public class PostService {
 
     //private UserCollab user = new UserCollab();
 
+
+
     public Post savePost(Post post){
-        UserCollab user = userCollabRepository.findByUserName(getCurrentUserName())
+        UserCollab user = userCollabRepository.findByEmail(getCurrentUserName())
                                             .orElseThrow(()->new RuntimeException("user doesnt exist"));
 
         post.setAuthor(user);
@@ -34,8 +40,9 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public List<Post> getAllPosts(){
-        return postRepository.findAll();
+    @Transactional
+    public List<PostWithAuthorDTO> getAllPosts(){
+        return postRepository.findAllPostWithAuthor();
     }
 
     public String getCurrentUserName(){
@@ -45,7 +52,7 @@ public class PostService {
         }
         else{
             MyUserDetails userDetails = (MyUserDetails)authentication.getPrincipal();
-            return userDetails.getUser().getUserName();
+            return userDetails.getUser().getEmail();
         }
     }
     

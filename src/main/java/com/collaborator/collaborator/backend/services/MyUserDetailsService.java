@@ -19,8 +19,8 @@ public class MyUserDetailsService implements UserDetailsService{
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserCollab user =  userRepository.findByUserName(username).orElseThrow(()-> new UsernameNotFoundException("'USER NOT FOUND'") );
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserCollab user =  userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("'USER NOT FOUND'") );
         
         return new MyUserDetails(user);
     }
