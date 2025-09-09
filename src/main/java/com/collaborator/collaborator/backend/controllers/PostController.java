@@ -3,6 +3,7 @@ package com.collaborator.collaborator.backend.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.collaborator.collaborator.backend.dto.PostWithAuthorDTO;
 import com.collaborator.collaborator.backend.models.Post;
 import com.collaborator.collaborator.backend.services.PostService;
 
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/post")
+@Profile("rest")
 public class PostController {
 
     @Autowired
@@ -37,8 +40,8 @@ public class PostController {
     }
 
     @GetMapping("/all-posts") // returns all posts from the partner repo
-    public ResponseEntity<List<Post>> getAllUserPosts() {
-        List<Post> post = postService.getAllPosts();
+    public ResponseEntity<List<PostWithAuthorDTO>> getAllUserPosts() {
+        List<PostWithAuthorDTO> post = postService.getAllPosts();
         return ResponseEntity.ok(post);
     }
 

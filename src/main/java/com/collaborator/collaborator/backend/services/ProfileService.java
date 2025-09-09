@@ -18,7 +18,7 @@ public class ProfileService {
 
 
     public UserCollab editProfile(UserCollab updatedUser){
-        UserCollab user = userCollabRepository.findByUserName(getCurrentUserName())
+        UserCollab user = userCollabRepository.findByEmail(getCurrentUserName())
                                                 .orElseThrow(()-> new RuntimeException("user doesnt exist"));
 
         updatedUser.setDescription(user.getDescription());
@@ -35,7 +35,7 @@ public class ProfileService {
         }
         else{
             MyUserDetails userDetails = (MyUserDetails)authentication.getPrincipal();
-            return userDetails.getUser().getUserName();
+            return userDetails.getUser().getEmail();
         }
     }
     
