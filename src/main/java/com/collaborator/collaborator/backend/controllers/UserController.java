@@ -53,9 +53,5 @@ public class UserController {
         return ResponseEntity.ok("Account pending");
     }
 
-    @GetMapping("/register")
-    public RedirectView login() {
-        return new RedirectView("/register");
-    }
      
 }
