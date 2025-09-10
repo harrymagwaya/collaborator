@@ -13,28 +13,28 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 
-@SpringBootTest
-public class DatabaseConnectTest {
+// @SpringBootTest
+// public class DatabaseConnectTest {
 
-    @Autowired
-    private DataSource dataSource;
+//     @Autowired
+//     private DataSource dataSource;
 
   
 
-    @Test
-    public void testConnection() throws SQLException {
+//     @Test
+//     public void testConnection() throws SQLException {
       
-            try (Connection connection = dataSource.getConnection()) {
-             //   mysqlConnection.checkClosed();
-            if (!connection.isClosed()) {
-                assertThat(connection.isValid(2)).isTrue();
-                System.out.println("✅ Database is connected successfully!");
-            } else {
-                System.out.println("❌ Failed to connect to the database.");
-            }
-    }
-    }
-}
+//             try (Connection connection = dataSource.getConnection()) {
+//              //   mysqlConnection.checkClosed();
+//             if (!connection.isClosed()) {
+//                 assertThat(connection.isValid(2)).isTrue();
+//                 System.out.println("✅ Database is connected successfully!");
+//             } else {
+//                 System.out.println("❌ Failed to connect to the database.");
+//             }
+//     }
+//     }
+// }
 package com.collaborator.collaborator;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
